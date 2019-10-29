@@ -1,0 +1,20 @@
+{  
+   "help_menu":{  
+      "text":"###################################\n#  Welcome to Voldemorts Revenge! #\n###################################\n-Use walk,move to move             \n-Type your commands to do them     \n-Good luck and have fun!           \n"
+   },
+   "title_menu":{  
+      "text":"#################################\n            -Play-               \n            -Help-               \n            -Quit-               \n#################################\n"
+   },
+   "print2":{  
+      "text":"We are pleased to inform you that you have been accepted into Hogwarts School of Witchcraft and Wizardry.\nYou travel to Diagon Alley to do your school shopping.\n You reach to Ollivanders to get your wand."
+   },
+   "print3":{  
+      "text":"You leave your home to catch the Hogwarts Express from King's Cross railway station's secret\nHogwarts platform, Platform ​9 3⁄4.\nAfter arriving at the station, you meet harry and then lead by Hagrid onto boats which they sail to the castle of Hogwarts.\nAfter reaching Hogwarts, you have taken to the common hall for the Sorting Hat ceremony to decide\nwhich house you are going to be a part of.\nAs all Hogwarts students live in one of four residences: Gryffindor, Hufflepuff, Ravenclaw, or Slytherin.\nProfessor McGonagall: Hello, and welcome to the sorting of Hogwarts School.\nPlease come forward and place the hat onto your head."
+   },
+   "print4":{  
+      "text":"You and Harry Potter have become good friends and you get to know how \nLord Voldemort have killed Harry's parents.\nAs the semester begins you and Harry been observing weird things happening around\nHogwarts and you realise that Voldemort is still alive.\nHarry and you have decided to kill him but while going ahead, Harry have been captured by Lord Voldemort!\nIt's up to you to rescue him now."
+   },
+   "print5":{  
+      "text":"As Harry has gone, you are searching ways to start hunting Lord Voldemort.\nYour friend Neville suggested you to check with Hagrid as he might know something.\nHagrid told you that he saw someone with a crooked face and asked him the \nabout the directions of prophecy tower.\nYou realise that you should go their and check if you get something.\nAs you are walking towards the prophecy tower, your skin begins to tingle...\nThere is a pitch dark room and you hear a woman's voice to welcoming you in the chamber of secrets..\nWoman's Voice: Hi, Welcome to the Chamber of Secrets.\n You have three doors in front of you to choose it in order to proceed further."
+   }
+}
