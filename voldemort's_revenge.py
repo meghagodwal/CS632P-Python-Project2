@@ -18,11 +18,10 @@ monster = {'name': 'Voldemort','attack':12, 'health':100 }
 
 def title_screen_selection():
     """
-This function helps player to decide whether you want to play,need help with the moves or quit the game.
-The function is taking input from the player and based on that conditional loops will work.
-
-If user types other command than play, help and quit, it will show a error message asking player to
-type valid command.
+    This function helps player to decide whether you want to play,need help with the moves or quit the game.
+    The function is taking input from the player and based on that conditional loops will work.
+    If user types other command than play, help and quit, it will show a error message asking player to
+    type valid command.
 """
     option = input("> ")
     if option.lower() == ("play"):
@@ -43,16 +42,16 @@ type valid command.
 
 def help_menu():
     """
-This function has help menu contents like how to play the game and are placed in json file.
-When player hits help from the title_screen_selection the json file will print the contents of help_menu.
+    This function has help menu contents like how to play the game and are placed in json file.
+    When player hits help from the title_screen_selection the json file will print the contents of help_menu.
     """
     print(data['help_menu']['text'])
     title_screen_selection()
 
 def title_screen():
     """
-This function is use for displaying the title screen with the three menus - play,help and quit.
-The contents of the function are placed in json file.
+    This function is use for displaying the title screen with the three menus - play,help and quit.
+    The contents of the function are placed in json file.
     """
     os.system('clear')
     print(data['title_menu']['text'])
@@ -60,8 +59,8 @@ The contents of the function are placed in json file.
 
 def setup_game():
     """
-This function is for setting up the player in the game.
-The function has used Input function to take input from the player by asking their names.
+    This function is for setting up the player in the game.
+    The function has used Input function to take input from the player by asking their names.
     """
     os.system('clear')
     question1 = "Hello, what's your name?\n"
@@ -163,10 +162,10 @@ time.sleep(5)
 
 def movement_handler1():
     """
-This function is the first stage of the game loop.
-Input function is used to take input from the player what spells they want to cast.
-Conditional statements is used to decide what happens if they use these spells.
-And  while loop is used to provide another life to player if they answer incorrectly.
+    This function is the first stage of the game loop.
+    Input function is used to take input from the player what spells they want to cast.
+    Conditional statements is used to decide what happens if they use these spells.
+    And  while loop is used to provide another life to player if they answer incorrectly.
     """
     print("You head down the path")
     time.sleep(2)
@@ -199,10 +198,10 @@ And  while loop is used to provide another life to player if they answer incorre
 
 def movement_handler2():
     """
-This function is second part of the first level of game.
-Random functionality is used to choose certain items in the level.
-Input function is used to take input from the player, if incorrect, While loop will help player to
-ask again for the correct item.
+    This function is second part of the first level of game.
+    Random functionality is used to choose certain items in the level.
+    Input function is used to take input from the player, if incorrect, While loop will help player to
+    ask again for the correct item.
     """
     time.sleep(2)
     print("After your survival from Troll, you are trying to unlock the door.\n")
@@ -223,10 +222,11 @@ ask again for the correct item.
 
 def movement_handler3():
     """
-This function is second stage of the game, player reaches this function after successfully completing the first stage
-of game.
-Input function is used to ask player if they want to continue the game and moving ahead for the second stage tasks.
-Conditional statements are used for users to give answer to the riddle, if incorrect, it will take you out of the game.
+    This function is second stage of the game, player reaches this function after successfully completing the
+    first stage of game.
+    Input function is used to ask player if they want to continue the game and moving ahead for the second stage tasks.
+    Conditional statements are used for users to give answer to the riddle, if incorrect, it will take you
+    out of the game.
     """
     time.sleep(2)
     print("After unlocking the mysterious door, you walk in to find Harry...")
@@ -256,11 +256,11 @@ Conditional statements are used for users to give answer to the riddle, if incor
 
 def movement_handler4():
     """
-This function is used for second part of second stage of the game.
-Input function used to ask if they want to continue the game or not, if not they will be out of the game and
-if in then another input will be taken to ask what action they want to perform.
-Conditional statements is used to decide what happens if they use these spells.
-And  while loop is used to provide another life to player if they answer incorrectly.
+    This function is used for second part of second stage of the game.
+    Input function used to ask if they want to continue the game or not, if not they will be out of the game and
+    if in then another input will be taken to ask what action they want to perform.
+    Conditional statements is used to decide what happens if they use these spells.
+    And  while loop is used to provide another life to player if they answer incorrectly.
     """
     time.sleep(2)
     print("As you are walking towards the next door.... you hear footsteps approaching...")
@@ -293,9 +293,9 @@ And  while loop is used to provide another life to player if they answer incorre
 
 def movement_handler5():
     """
-The function is used for third part of second stage. This is a riddle stage where Input function
-will ask player for the correct answer to open the second stage door. If player didnot give the correct answer,
-While loop will help player to give another chance to correctly solve the riddle, if not, player will lose the game.
+    The function is used for third part of second stage. This is a riddle stage where Input function
+    will ask player for the correct answer to open the second stage door. If player didn't give the correct answer,
+    While loop will help player to give another chance to correctly solve the riddle, if not, player will lose the game.
     """
     print("... after a long survival you see a prophecy lying there..")
     time.sleep(2)
@@ -331,11 +331,11 @@ def level2():
 
 def last_level():
     """
-This function is last stage of the game, where voldemort encounter player.
-The Input function will help user to choose between the attack and healing potion.If player chooses attack voldemort's
-and players both health will be affected and displayed using print function.
-Player can choose heal potion to gain some health. While and Conditonal statements are used for that for players
-to keep in loop.
+    This function is last stage of the game, where voldemort encounter player.
+    The Input function will help user to choose between the attack and healing potion.If player chooses attack
+    voldemort's and players both health will be affected and displayed using print function.
+    Player can choose heal potion to gain some health. While and Conditional statements are used for that for players
+    to keep in loop.
     """
     time.sleep(2)
     print("You start to move ahead through the door...")
@@ -394,8 +394,8 @@ to keep in loop.
 
 def player_move_level2():
     """
-This a general function used in second and third stage of the game.
-It takes input from the player using Input function and asks player which door they would like to go to.
+    This a general function used in second and third stage of the game.
+    It takes input from the player using Input function and asks player which door they would like to go to.
     """
     ask = "Which door you would like to go to?(1,2 or 3)\n"
     dest = input(ask)
@@ -410,9 +410,9 @@ It takes input from the player using Input function and asks player which door t
 
 def player_move():
     """
-This fucntion is used for first stage of the game. It takes input from the player using Input function
- and asks player which door they would like to go to. As per the selection it will directly takes player to
- the first stage's game task.
+    This function is used for first stage of the game. It takes input from the player using Input function
+    and asks player which door they would like to go to. As per the selection it will directly takes player to
+    the first stage's game task.
     """
     prompt()
     ask = "Which door you would like to go to?(1,2 or 3)\n"
@@ -429,10 +429,10 @@ This fucntion is used for first stage of the game. It takes input from the playe
 
 def prompt():
     """
-This function asks player what they want to do and for that it takes input from the player with Input function.
-It gives there options to player to choose, walk, move and quit.
-Quit helps player to immediately quit the game if they dont want to play anymore.
-Walk and move will let player continue the game.
+    This function asks player what they want to do and for that it takes input from the player with Input function.
+    It gives there options to player to choose, walk, move and quit.
+    Quit helps player to immediately quit the game if they dont want to play anymore.
+    Walk and move will let player continue the game.
     """
     print("What would you like to do? ( walk, move, quit)\n")
     action= input("> ")
