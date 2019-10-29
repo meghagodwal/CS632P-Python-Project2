@@ -22,7 +22,7 @@ def title_screen_selection():
     The function is taking input from the player and based on that conditional loops will work.
     If user types other command than play, help and quit, it will show a error message asking player to
     type valid command.
-"""
+    """
     option = input("> ")
     if option.lower() == ("play"):
         setup_game()
