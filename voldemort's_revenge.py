@@ -14,7 +14,7 @@ with open('game-text.json', 'r') as f:
     data = json.load(f)
 
 player ={'attack':10, 'heal': 20, 'health': 100}
-monster = {'name': 'Voldemort','attack':12, 'health':100 }
+monster = {'name': 'Voldemort','attack':12, 'health':100, 'heal':5,'attack1': 10}
 
 def title_screen_selection():
     """
@@ -229,12 +229,11 @@ def movement_handler3():
     out of the game.
     """
     time.sleep(2)
-    print("After unlocking the mysterious door, you walk in to find Harry...")
+    print("\nAfter unlocking the mysterious door, you walk in to find Harry...")
     time.sleep(2)
     print("\nYou again hear woman's voice....")
     time.sleep(1)
-    print("Congratulations! you have successfully opened first door...\n and you reached to second stage\
-     of Chambers of secrets...")
+    print("Congratulations! you have successfully opened first door and you reached to second stage of Chambers of secrets")
     time.sleep(2)
     print("\nWould you like to continue? (yes or no)\n")
     answer= input("> ")
@@ -242,7 +241,7 @@ def movement_handler3():
         print("Woman's Voice - answer this riddle and you are through to the next level!\n")
         time.sleep(2)
         print("I roam the woods of Hogwarts school.\n And my coat is a lovely white,\n But don't you dare,\
-         try to drink my blood,\n Or you'll be cursed for life.\n Who am I?\n")
+try to drink my blood,\n Or you'll be cursed for life.\n Who am I?\n")
         print("- A white animal\n")
         ans = input("> ")
         if ans == 'unicorn':
@@ -265,7 +264,7 @@ def movement_handler4():
     time.sleep(2)
     print("As you are walking towards the next door.... you hear footsteps approaching...")
     time.sleep(2)
-    print("\nThey're getting louder and louder.\n You can feel them almost beside you.")
+    print("\nThey're getting louder and louder. You can feel them almost beside you.")
     time.sleep(2)
     print("And suddenly you see Bellatrix Lestrange holding the prophecy.\n Would you like to continue?(yes or no)\n")
     answer= input("> ")
@@ -302,7 +301,7 @@ def movement_handler5():
     print("You begin to think what that must be......")
     time.sleep(2)
     print("the prophecy says - A son cruelly banished\nDespair of the daughter\nReturn, great avenger\nWith wings\
-     from the water.")
+from the water.")
     time.sleep(2)
     print("You gasped.........and start moving ahead")
     time.sleep(2)
@@ -320,9 +319,6 @@ def movement_handler5():
             print("Hard Luck! you have lost it !")
             exit()
             break
-    else:
-        print("goodbye! you lost...")
-        exit()
 
 def level2():
     movement_handler3()
@@ -359,6 +355,7 @@ def last_level():
     time.sleep(3)
     print("you put out your wand and start attacking Voldemort")
     game_running = True
+    chances = 0
     while game_running == True:
         player_won = False
         monster_won = False
@@ -370,12 +367,11 @@ def last_level():
         player_choice = input(">  ")
         if player_choice == "1":
             monster['health'] = monster['health'] - player['attack']
-            if monster['health']<=0:
+            if monster['health'] <= 0:
                 player_won = True
-                print("Congratulations! You have killed Voldemort and saved Harry!")
             else:
                 player['health'] = player['health'] - monster['attack']
-                if player['health']<=0:
+                if player['health'] <= 0:
                     monster_won = True
             print("Voldemort's Health -")
             print(monster['health'])
@@ -383,13 +379,22 @@ def last_level():
             print(player['health'])
 
         elif player_choice == '2':
-            player['health'] = player['health'] + player['heal']
-            print("Heal player")
+            if chances > 3:
+                print("your 3 Healing Potions are over.")
+            else:
+                player['health'] = player['health'] + player['heal']
+                monster['health'] = monster['health'] + monster['heal']
+                player['health'] = player['health'] - monster['attack1']
+                chances += 1
+                print("You are healed")
         else:
             print("Invalid input")
-        if player_won == True or monster_won == True:
+        if player_won == True:
             game_running = False
-            print("Congratulations!")
+            print("Congratulations! you have killed Voldemort and saved Harry!")
+        elif monster_won == True:
+            game_running = False
+            print("Sorry Voldemort killed you, better luck next time!")
 
 
 def player_move_level2():
@@ -434,9 +439,9 @@ def prompt():
     Quit helps player to immediately quit the game if they dont want to play anymore.
     Walk and move will let player continue the game.
     """
-    print("What would you like to do? ( walk, move, quit)\n")
+    print("What would you like to do? ( walk, quit)\n")
     action= input("> ")
-    acceptable_actions = ['walk','move']
+    acceptable_actions = ['walk']
     while action.lower() in acceptable_actions:
         print("You are walking towards the doors...\n")
         time.sleep(2)
