@@ -1,0 +1,11 @@
+1) python - 3.7.4
+2) pyfiglet - 0.8.post1
+3) import random
+4) import time
+5) import sys
+6) import sys
+7) import inflect
+8) import Pygame - 1.9.6
+9) import json
+
+

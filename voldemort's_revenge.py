@@ -3,18 +3,38 @@ import time
 import random
 import sys
 import os
+import inflect
 import textwrap
 import cmd
 import pygame
-from pygame.locals import*
 import json
-
 
 with open('game-text.json', 'r') as f:
     data = json.load(f)
 
-player ={'attack':10, 'heal': 20, 'health': 100}
-monster = {'name': 'Voldemort','attack':12, 'health':100, 'heal':5,'attack1': 10}
+p = inflect.engine()
+
+player = {'attack': 10, 'heal': 20, 'health': 100}
+monster = {'name': 'Voldemort', 'attack': 12, 'health': 100, 'heal': 5, 'attack1': 10}
+
+WOOD_MAPPING = {
+    'a': data['opts_a'],
+    'b': data['opts_b'],
+    'c': data['opts_c'],
+    'd': data['opts_d'],
+    'e': data['opts_e'],
+    'f': data['opts_f'],
+    'g': data['opts_g']
+}
+
+HOUSE_LIST =['a. Benevolence','b. Courageousness', 'c. Knavishness', 'd. Intelligence']
+
+HOUSE_MAPPING = {
+    "a": "Hufflepuff",
+    "b": "Gryffindor",
+    "c": "Slythrin",
+    "d": "Ravenclaw"
+}
 
 def title_screen_selection():
     """
@@ -24,21 +44,22 @@ def title_screen_selection():
     type valid command.
     """
     option = input("> ")
-    if option.lower() == ("play"):
+    if option.lower() == "play":
         setup_game()
-    elif option.lower() == ("help"):
+    elif option.lower() == "help":
         help_menu()
-    elif option.lower() == ("quit"):
+    elif option.lower() == "quit":
         sys.exit()
     while option.lower() not in ['play', 'help', 'quit']:
         print("Please Enter a valid command.")
         option = input("> ")
-        if option.lower() == ("play"):
+        if option.lower() == "play":
             setup_game()
-        elif option.lower() == ("help"):
+        elif option.lower() == "help":
             help_menu()
-        elif option.lower() == ("quit"):
+        elif option.lower() == "quit":
             sys.exit()
+
 
 def help_menu():
     """
@@ -47,6 +68,7 @@ def help_menu():
     """
     print(data['help_menu']['text'])
     title_screen_selection()
+
 
 def title_screen():
     """
@@ -57,6 +79,7 @@ def title_screen():
     print(data['title_menu']['text'])
     title_screen_selection()
 
+### player creds
 def setup_game():
     """
     This function is for setting up the player in the game.
@@ -70,96 +93,7 @@ def setup_game():
         time.sleep(0.05)
     player_name = input("> ")
 
-result=pyfiglet.figlet_format("Voldemort's\n Revenge")
-print(result)
-print("Welcome to Voldemort's Revenge.")
-pygame.mixer.init()
-pygame.mixer.music.load("harry_potter_theme.mp3")
-pygame.mixer.music.play()
-print("")
-title_screen()
-time.sleep(2)
-
-#WAND SELECTION
-print(data["print2"]["text"])
-time.sleep(2)
-print("\n")
-print("Welcome to Ollivander's!")
-time.sleep(0.2)
-print("")
-print("Are you most:")
-print("a: Kind and Generous")
-print("b: Tenacious")
-print("c: A good leader")
-print("d: Full of life")
-print("e: Knowledgeable")
-print("f: Strong and flexible")
-print("g: Confident and Optimistic")
-print("")
-wood=input(">>>")
-print("")
-if wood.lower() == "a":
-    print("You recieve an Ash Wand, 13 4/17 inches, with a Unicorn Tail Hair core.")
-    print("")
-    print("Processing...")
-    time.sleep(3)
-elif wood.lower() == "b":
-    print("You receive an Ivy Wand, 9 2/9 inches, with a Dragon Heartstring core.")
-    print("")
-    print("Processing...")
-    time.sleep(3)
-elif wood.lower() == "c":
-    print("You receive a Holly Wand, 11 1/2 inches, with a Phoenix Feather core.")
-    print("")
-    print("Processing...")
-    time.sleep(3)
-elif wood.lower() =="d":
-    print("You receive a Birch Wand, 10 3/4 inches, with a Dragon Heartstring core.")
-    print("")
-    print("Processing...")
-    time.sleep(3)
-elif wood.lower() == "e":
-    print("You receive a Reed Wand, 9 9/10 inches, with a Phoenix Feather core.")
-    print("")
-    print("Processing...")
-    time.sleep(3)
-elif wood.lower() == "f":
-    print("You receive a Willow Wand, 8 7/9 inches, with a Unicorn Tail Hair core")
-    print("")
-    print("Processing...")
-    time.sleep(3)
-elif wood.lower() == "g":
-    print("You receive an Oak Wand, 16 inches, with a Unicorn Tail Hair core.")
-    print("")
-    print("Processing...")
-    time.sleep(3)
-
-#SORTING HAT
-print(data['print3']['text'])
-print("")
-time.sleep(3)
-house=["Benevolence","Courageousness","Knavishness","Intelligence"]
-print('Do you pride yourself on your-')
-print('a. Benevolence')
-print('b. Courageousness')
-print('c. Knavishness')
-print('d. Intelligence')
-trait=input(" ").lower()
-if trait.lower()=="a":
-    house="Hufflepuff!"
-elif trait.lower()=="b":
-    house="Gryffindor!"
-elif trait.lower()=="c":
-    house="Slythrin!"
-elif trait.lower()=="d":
-    house="Ravenclaw!"
-print('Congratulations on being sorted into '+ house)
-
-time.sleep(2)
-print(data['print4']['text'])
-print(" ")
-time.sleep(5)
-
+### first stage of chambers of sceret
 def movement_handler1():
     """
     This function is the first stage of the game loop.
@@ -167,27 +101,22 @@ def movement_handler1():
     Conditional statements is used to decide what happens if they use these spells.
     And  while loop is used to provide another life to player if they answer incorrectly.
     """
-    print("You head down the path")
-    time.sleep(2)
-    print("There is a Dark room and you see a giant man coming across you.")
-    time.sleep(2)
-    print("Your skin begins to tingle....")
-    print()
-    time.sleep(2)
-    print("You have come across a Troll... What spell do you perform to save yourself?")
-    time.sleep(1)
-    print("You can choose spells :Expelliarmus, Stupefy, Incendio, Levicorpus\n")
-    time.sleep(1)
+    for statement in data['move1']:
+        print(statement)
+        time.sleep(1)
     ans = input("> ")
+
     if ans in ["Expelliarmus", "Incendio"]:
         print("You have disarmed the Troll, you need to cast the stronger spell to kill him.")
+
     while ans not in ["Stupefy", "Levicorpus"]:
         print("Try again one more time, you have last chance to kill him.")
         ans = input("> ")
-        while ans not in ["Stupefy","Levicorpus"]:
+        while ans not in ["Stupefy", "Levicorpus"]:
             print("Sorry! you have lost to Troll.")
             exit()
             break
+
     if ans in ["Stupefy", "Levicorpus"]:
         print("Phewww! you are able to kill the Troll.")
         movement_handler2()
@@ -203,19 +132,18 @@ def movement_handler2():
     Input function is used to take input from the player, if incorrect, While loop will help player to
     ask again for the correct item.
     """
-    time.sleep(2)
-    print("After your survival from Troll, you are trying to unlock the door.\n")
-    time.sleep(2)
-    print("And you see bunch of keys flying in the room, select the appropriate key to go ahead.\n")
-    print("Hint- There are 10 keys and you have to find the correct one.")
-    correct_num=random.randint(1,10)
-    keep_guessing='true'
-    while keep_guessing == "true":
+    for statement in data['move2']:
+        print(statement)
+        time.sleep(1)
+
+    correct_num = random.randint(1, 10)
+    keep_guessing = True
+    while keep_guessing:
         guess = int(input("Enter the number key:"))
         if guess == correct_num:
             print("Sweet! You have amazingly figured the correct key.")
             level2()
-            keep_guessing = 'false'
+            break
         else:
             print("Try again with another key.")
 
@@ -228,16 +156,12 @@ def movement_handler3():
     Conditional statements are used for users to give answer to the riddle, if incorrect, it will take you
     out of the game.
     """
-    time.sleep(2)
-    print("\nAfter unlocking the mysterious door, you walk in to find Harry...")
-    time.sleep(2)
-    print("\nYou again hear woman's voice....")
-    time.sleep(1)
-    print("Congratulations! you have successfully opened first door and you reached to second stage of Chambers of secrets")
-    time.sleep(2)
-    print("\nWould you like to continue? (yes or no)\n")
-    answer= input("> ")
-    if answer == "yes":
+    for statement in data['move3']:
+        print(statement)
+        time.sleep(1)
+
+    first_ans = input("> ")
+    if first_ans == "yes":
         print("Woman's Voice - answer this riddle and you are through to the next level!\n")
         time.sleep(2)
         print("I roam the woods of Hogwarts school.\n And my coat is a lovely white,\n But don't you dare,\
@@ -253,6 +177,7 @@ try to drink my blood,\n Or you'll be cursed for life.\n Who am I?\n")
         print("You were very close to rescue Harry!")
         exit()
 
+
 def movement_handler4():
     """
     This function is used for second part of second stage of the game.
@@ -261,34 +186,34 @@ def movement_handler4():
     Conditional statements is used to decide what happens if they use these spells.
     And  while loop is used to provide another life to player if they answer incorrectly.
     """
-    time.sleep(2)
-    print("As you are walking towards the next door.... you hear footsteps approaching...")
-    time.sleep(2)
-    print("\nThey're getting louder and louder. You can feel them almost beside you.")
-    time.sleep(2)
-    print("And suddenly you see Bellatrix Lestrange holding the prophecy.\n Would you like to continue?(yes or no)\n")
-    answer= input("> ")
-    if answer == 'yes':
+    for statement in data['move4']:
+        print(statement)
+        time.sleep(1)
+
+    ans = input("> ")
+    if ans == 'yes':
         print("You try to hide to attack her...")
         time.sleep(2)
         print("Which spell you would like to cast?\n")
         print("You can choose spells :Expectopatronum, Crucio, Imperio, Sectumsempra\n")
         spell = input("> ")
-        if spell in ["Imperio"]:
+        if spell in ["Imperio","Crucio"]:
             print("You are only able to disarm her, cast some stronger spell to kill her.\n")
-        while spell not in ["Expectopatronum", "Crucio","Sectumsempra"]:
+        while spell not in ["Expectopatronum", "Sectumsempra"]:
             print("Try again one more time!")
             spell = input("> ")
-            while spell not in ["Expectopatronum", "Crucio","Sectumsempra"]:
+            while spell not in ["Expectopatronum", "Sectumsempra"]:
                 print("Tough! you did your best but you didnt survive.")
                 exit()
                 break
         else:
             print("Wicked! You have killed Bellatrix Lestrange.")
+            time.sleep(2)
             movement_handler5()
     else:
         print("Well, you are losing a battle.")
         exit()
+
 
 def movement_handler5():
     """
@@ -296,35 +221,30 @@ def movement_handler5():
     will ask player for the correct answer to open the second stage door. If player didn't give the correct answer,
     While loop will help player to give another chance to correctly solve the riddle, if not, player will lose the game.
     """
-    print("... after a long survival you see a prophecy lying there..")
-    time.sleep(2)
-    print("You begin to think what that must be......")
-    time.sleep(2)
-    print("the prophecy says - A son cruelly banished\nDespair of the daughter\nReturn, great avenger\nWith wings\
-from the water.")
-    time.sleep(2)
-    print("You gasped.........and start moving ahead")
-    time.sleep(2)
-    print("You approach the door, surprisingly, it's locked.")
-    time.sleep(2)
-    print("you hear a voice - Take off my skin - I won't cry, but you will! What am I?")
-    answer = input("> ")
-    if answer == 'onion':
+    for statement in data['move5']:
+        print(statement)
+        time.sleep(1)
+    ans = input("> ")
+    if ans == 'onion':
         print("You are scared and door slowly opens....")
         last_level()
-    while answer!= 'onion':
+    while ans != 'onion':
         print("Incorrect answer, try again one more time!")
-        answer = input("> ")
-        while answer != 'onion':
+        ans = input("> ")
+        while ans != 'onion':
             print("Hard Luck! you have lost it !")
             exit()
             break
 
+### second stage of chambers of secrets
 def level2():
     movement_handler3()
+    time.sleep(2)
     prompt()
+    time.sleep(2)
     movement_handler4()
 
+###third stage of chambers of secrets
 def last_level():
     """
     This function is last stage of the game, where voldemort encounter player.
@@ -333,32 +253,13 @@ def last_level():
     Player can choose heal potion to gain some health. While and Conditional statements are used for that for players
     to keep in loop.
     """
-    time.sleep(2)
-    print("You start to move ahead through the door...")
-    time.sleep(2)
-    print("Woman's voice - You're about to face your final challenge.")
-    time.sleep(2)
-    print("As you entered the room it's trashed. Chunks of metal everywhere. You see Harry's body lying on the ground.")
-    time.sleep(2)
-    print("You run to him to wake him up... but he seemed cursed")
-    time.sleep(2)
-    print("Suddenly.. you hear footsteps approaching towards you")
-    time.sleep(2)
-    print("Voldemort - Well, well.. so you are here to save Harry")
-    print("Voldemort - so are you ready to face your utmost fear?")
-    time.sleep(2)
-    print("..............what u did to harry?")
-    time.sleep(2)
-    print("Voldemort - well you dont worry about him by the time I finish with you I am going to kill him as well.")
-    time.sleep(2)
-    print("........ you cant.. I am going to kill you!!!")
-    time.sleep(3)
-    print("you put out your wand and start attacking Voldemort")
+    for statement in data['last_level']:
+        print(statement)
+        time.sleep(1)
     game_running = True
     chances = 0
-    while game_running == True:
-        player_won = False
-        monster_won = False
+    while game_running:
+        player_won, monster_won = False, False
 
         print("Select spell to cast :")
         print('1. Expecto-Patronum')
@@ -373,13 +274,10 @@ def last_level():
                 player['health'] = player['health'] - monster['attack']
                 if player['health'] <= 0:
                     monster_won = True
-            print("Voldemort's Health -")
-            print(monster['health'])
-            print("Your Health -")
-            print(player['health'])
+            print("Voldemort's Health - {0}\nYour Health - {1}".format(monster['health'], player['health']))
 
         elif player_choice == '2':
-            if chances > 3:
+            if chances > 2:
                 print("your 3 Healing Potions are over.")
             else:
                 player['health'] = player['health'] + player['heal']
@@ -389,10 +287,10 @@ def last_level():
                 print("You are healed")
         else:
             print("Invalid input")
-        if player_won == True:
+        if player_won:
             game_running = False
             print("Congratulations! you have killed Voldemort and saved Harry!")
-        elif monster_won == True:
+        elif monster_won:
             game_running = False
             print("Sorry Voldemort killed you, better luck next time!")
 
@@ -404,14 +302,8 @@ def player_move_level2():
     """
     ask = "Which door you would like to go to?(1,2 or 3)\n"
     dest = input(ask)
-    if dest in ['3']:
-        print("You are moving towards Door number three.\n")
+    print('You are moving towards Door number {0}'.format(p.number_to_words(dest)))
 
-    elif dest in ['1']:
-        print("You are moving towards Door number one.\n")
-
-    else:
-        print("You are moving straight to Door number two.\n")
 
 def player_move():
     """
@@ -422,15 +314,11 @@ def player_move():
     prompt()
     ask = "Which door you would like to go to?(1,2 or 3)\n"
     dest = input(ask)
-    if dest in ['3']:
-        print("You are moving towards Door number three.\n")
-        movement_handler1()
-    elif dest in ['1']:
-        print("You are moving towards Door number one.\n")
-        movement_handler1()
-    else:
-        print("You are moving straight to Door number two.\n")
-        movement_handler1()
+    print('You are moving towards Door number {0}'.format(p.number_to_words(dest)))
+    time.sleep(2)
+    movement_handler1()
+
+
 
 def prompt():
     """
@@ -440,7 +328,7 @@ def prompt():
     Walk and move will let player continue the game.
     """
     print("What would you like to do? ( walk, quit)\n")
-    action= input("> ")
+    action = input("> ")
     acceptable_actions = ['walk']
     while action.lower() in acceptable_actions:
         print("You are walking towards the doors...\n")
@@ -456,23 +344,47 @@ def prompt():
     else:
         print(" ")
 
+######set up of the game
+def main():
+    pyfiglet.figlet_format(data['game_name'])
+    result = pyfiglet.figlet_format("Voldemort's\n Revenge")
+    print(result)
+    print(data['welcome_msg'])
+    pygame.mixer.init()
+    pygame.mixer.music.load("harry_potter_theme.mp3")
+    pygame.mixer.music.play()
+    title_screen()
+    time.sleep(2)
+
+    # WAND SELECTION
+    print(data["print2"]["text"])
+    time.sleep(2)
+    print(data["welcome_opts"])
+    wood = input(">>>")
+    print(WOOD_MAPPING[wood.lower()])
+    time.sleep(3)
+
+    # SORTING HAT
+    print(data['print3']['text'])
+    time.sleep(3)
+
+    print('Do you pride yourself on your-')
+    print('\n'.join(str(k) for k in HOUSE_LIST))
+    trait = input(" ").lower()
+    house = HOUSE_MAPPING[trait.lower()]
+    print('Congratulations on being sorted into {0}'.format(house))
+    time.sleep(2)
+    print(data['print4']['text'])
+    time.sleep(5)
+
+    answer = input("Would you like to play? (yes or no)")
+    if answer == "yes":
+        print(data['print5']['text'])
+        player_move()
+    else:
+        print("You have missed the great chance to destroy you know who.")
+        exit()
 
 
-
-answer=input("Would you like to play? (yes or no)")
-if answer == "yes":
-    print(data['print5']['text'])
-    player_move()
-else:
-    print("You have missed the great chance to destroy you know who.")
-    exit()
-
-
-
-
-
-
-
-
-
-
+if __name__ == "__main__":
+    main()

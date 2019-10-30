@@ -6,15 +6,66 @@
       "text":"#################################\n            -Play-               \n            -Help-               \n            -Quit-               \n#################################\n"
    },
    "print2":{  
-      "text":"We are pleased to inform you that you have been accepted into Hogwarts School of Witchcraft and Wizardry.\nYou travel to Diagon Alley to do your school shopping.\nYou reach to Ollivanders to get your wand."
+      "text":"We are pleased to inform you that you have been accepted into Hogwarts School of Witchcraft and Wizardry.\nYou travel to Diagon Alley to do your school shopping.\nYou reach to Ollivanders to get your wand.\n"
    },
    "print3":{  
-      "text":"You leave your home to catch the Hogwarts Express from King's Cross railway station's secret Hogwarts platform, Platform ​9 3⁄4.\nAfter arriving at the station, you meet harry and then lead by Hagrid onto boats which they sail to the castle of Hogwarts.\nAfter reaching Hogwarts, you have taken to the common hall for the Sorting Hat ceremony to decide which house you are going to be a part of.\nAs all Hogwarts students live in one of four residences: Gryffindor, Hufflepuff, Ravenclaw, or Slytherin.\n\nProfessor McGonagall: Hello, and welcome to the sorting of Hogwarts School.\n\nPlease come forward and place the hat onto your head."
+      "text":"You leave your home to catch the Hogwarts Express from King's Cross railway station's secret Hogwarts platform, Platform ​9 3⁄4.\nAfter arriving at the station, you meet harry and then lead by Hagrid onto boats which they sail to the castle of Hogwarts.\nAfter reaching Hogwarts, you have taken to the common hall for the Sorting Hat ceremony to decide which house you are going to be a part of.\nAs all Hogwarts students live in one of four residences: Gryffindor, Hufflepuff, Ravenclaw, or Slytherin.\n\nProfessor McGonagall: Hello, and welcome to the sorting of Hogwarts School.\n\nPlease come forward and place the hat onto your head.\n"
    },
    "print4":{  
-      "text":"\nYou and Harry Potter have become good friends and you get to know how Lord Voldemort have killed Harry's parents.\nAs the semester begins you and Harry been observing weird things happening around Hogwarts and you realise that Voldemort is still alive.\nHarry and you have decided to kill him but while going ahead, Harry have been captured by Lord Voldemort!\n\nIt's up to you to rescue him now."
+      "text":"\nYou and Harry Potter have become good friends and you get to know how Lord Voldemort have killed Harry's parents.\nAs the semester begins you and Harry been observing weird things happening around Hogwarts and you realise that Voldemort is still alive.\nHarry and you have decided to kill him but while going ahead, Harry have been captured by Lord Voldemort!\n\nIt's up to you to rescue him now.\n"
    },
    "print5":{  
-      "text":"As Harry has gone, you are searching ways to start hunting Lord Voldemort.\nYour friend Neville suggested you to check with Hagrid as he might know something.\nHagrid told you that he saw someone with a crooked face and asked him the about the directions of prophecy tower.\nYou realise that you should go their and check if you get something.\n\nAs you are walking towards the prophecy tower, your skin begins to tingle...\n\nThere is a pitch dark room and you hear a woman's voice to welcoming you in the chamber of secrets..\n\nWoman's Voice: Hi, Welcome to the Chamber of Secrets.\n\nYou have three doors in front of you to choose it in order to proceed further."
-   }
+      "text":"As Harry has gone, you are searching ways to start hunting Lord Voldemort.\nYour friend Neville suggested you to check with Hagrid as he might know something.\nHagrid told you that he saw someone with a crooked face and asked him the about the directions of prophecy tower.\nYou realise that you should go their and check if you get something.\n\nAs you are walking towards the prophecy tower, your skin begins to tingle...\n\nThere is a pitch dark room and you hear a woman's voice to welcoming you in the chamber of secrets..\n\nWoman's Voice: Hi, Welcome to the Chamber of Secrets.\n\nYou have three doors in front of you to choose it in order to proceed further.\n"
+   },
+   "game_name":"Voldemort's\\n Revenge",
+   "welcome_msg":"Welcome to Voldemort's Revenge.\n",
+   "music_file_name":"harry_potter_theme.mp3",
+   "welcome_opts":"Welcome to Ollivander's!\n\nAre you most:\na: Kind and Generous\nb: Tenacious\nc: A good leader\nd: Full of life\ne: Knowledgeable\nf: Strong and flexible\ng: Confident and Optimistic\n",
+   "opts_a":"You receive an Ash Wand, 13 4/17 inches, with a Unicorn Tail Hair core.\n\nProcessing...\n",
+   "opts_b":"You receive an Ivy Wand, 9 2/9 inches, with a Dragon Heartstring core.\n\nProcessing...\n",
+   "opts_c":"You receive a Holly Wand, 11 1/2 inches, with a Phoenix Feather core.\n\nProcessing...\n",
+   "opts_d":"You receive a Birch Wand, 10 3/4 inches, with a Dragon Heartstring core.\n\nProcessing...\n",
+   "opts_e":"You receive a Reed Wand, 9 9/10 inches, with a Phoenix Feather core.\n\nProcessing...\n",
+   "opts_f":"You receive a Willow Wand, 8 7/9 inches, with a Unicorn Tail Hair core.\n\nProcessing...\n",
+   "opts_g":"You receive an Oak Wand, 16 inches, with a Unicorn Tail Hair core.\n\nProcessing...\n",
+   "move1":[  
+      "You head down the path,\n\nThere is a Dark room and you see a giant man coming across you.\n\nYour skin begins to tingle....,\n\nYou have come across a Troll...\n\nWhat spell do you perform to save yourself?\n\nYou can choose spells :Expelliarmus, Stupefy, Incendio, Levicorpus"
+   ],
+   "move2":[  
+      "After your survival from Troll, you are trying to unlock the door.\n",
+      "And you see bunch of keys flying in the room, select the appropriate key to go ahead.\n",
+      "Hint- There are 10 keys and you have to find the correct one.\n"
+   ],
+   "move3":[  
+      "\nAfter unlocking the mysterious door, you walk in to find Harry...\n",
+      "\nYou again hear woman's voice....\n",
+      "Congratulations! you have successfully opened first door and you reached to second stage of Chambers of secrets\n",
+      "Would you like to continue? (yes or no)\n"
+   ],
+   "move4":[  
+      "As you are walking towards the next door.... you hear footsteps approaching...\n",
+      "They're getting louder and louder. You can feel them almost beside you.\n",
+      "And suddenly you see Bellatrix Lestrange holding the prophecy.\n Would you like to continue?(yes or no)\n"
+   ],
+   "move5":[  
+      "... after a long survival you see a prophecy lying there..\n",
+      "You begin to think what that must be......\n",
+      "the prophecy says - A son cruelly banished\nDespair of the daughter\nReturn, great avenger\nWith wings\nfrom the water.\n",
+      "You gasped.........and start moving ahead\n",
+      "You approach the door, surprisingly, it's locked.\n",
+      "you hear a voice - Take off my skin - I won't cry, but you will! What am I?\n"
+   ],
+   "last_level":[  
+      "You start to move ahead through the door...\n",
+      "Woman's voice - You're about to face your final challenge.\n",
+      "As you entered the room it's trashed. Chunks of metal everywhere. You see Harry's body lying on the ground.\n",
+      "You run to him to wake him up... but he seemed cursed\n",
+      "Suddenly.. you hear footsteps approaching towards you\n",
+      "Voldemort - Well, well.. so you are here to save Harry\n",
+      "Voldemort - so are you ready to face your utmost fear?\n",
+      "..............what u did to harry?\n",
+      "Voldemort - well you dont worry about him by the time I finish with you I am going to kill him as well.\n",
+      "........ you cant.. I am going to kill you!!!\n",
+      "you put out your wand and start attacking Voldemort\n"
+   ]
 }
